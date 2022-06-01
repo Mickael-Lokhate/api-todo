@@ -1,6 +1,7 @@
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
 import { buildSchema } from "graphql";
+import cors from "cors";
 
 let todos = [
   {
@@ -41,7 +42,7 @@ let categories = [
 ];
 
 const port = 3001;
-const dev_mode = true;
+const dev_mode = false;
 const app = express();
 
 let schema = buildSchema(`
@@ -76,6 +77,11 @@ let schema = buildSchema(`
 
 let root = {
   todos: () => {
+    todos.sort((a, b) => {
+      if (a.checked) return 1;
+      else if (b.checked) return -1;
+      return 0;
+    });
     return todos;
   },
   todo: ({ id }) => {
@@ -123,6 +129,8 @@ let root = {
     return c;
   },
 };
+
+app.use(cors());
 
 app.use(
   "/api",
