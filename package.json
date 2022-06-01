@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Little graphql api for todo list",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,14 @@
   "bugs": {
     "url": "https://github.com/Mickael-Lokhate/api-todo/issues"
   },
-  "homepage": "https://github.com/Mickael-Lokhate/api-todo#readme"
+  "homepage": "https://github.com/Mickael-Lokhate/api-todo#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.8.0",
+    "nodemon": "^2.0.16"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13"
+  }
 }
