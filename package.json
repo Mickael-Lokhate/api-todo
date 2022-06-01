@@ -1,0 +1,29 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Little graphql api for todo list",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Mickael-Lokhate/api-todo.git"
+  },
+  "keywords": [
+    "api",
+    "todo",
+    "list",
+    "next",
+    "node",
+    "express",
+    "graph",
+    "graphql"
+  ],
+  "author": "Mickael Lokhate",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mickael-Lokhate/api-todo/issues"
+  },
+  "homepage": "https://github.com/Mickael-Lokhate/api-todo#readme"
+}
