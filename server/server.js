@@ -45,7 +45,6 @@ let categories = [
   { id: 3, name: "Perso", color: "#495867" },
 ];
 
-const port = 3001;
 const dev_mode = false;
 
 let schema = buildSchema(`
