@@ -92,6 +92,11 @@ let root = {
   },
   todosByCat: ({ cat_id }) => {
     const t = todos.filter((val) => val.cat_id == cat_id);
+    t.sort((a, b) => {
+      if (a.checked) return 1;
+      else if (b.checked) return -1;
+      return 0;
+    });
     return t;
   },
   categories: () => {
@@ -120,10 +125,20 @@ let root = {
       checked: newChecked,
     });
     const t = todos.filter((val) => val.cat_id == cat_id);
+    t.sort((a, b) => {
+      if (a.checked) return 1;
+      else if (b.checked) return -1;
+      return 0;
+    });
     return t;
   },
   removeTodo: ({ id }) => {
     todos = todos.filter((t) => t.id != id);
+    todos.sort((a, b) => {
+      if (a.checked) return 1;
+      else if (b.checked) return -1;
+      return 0;
+    });
     return todos;
   },
   checkTodo: ({ id }) => {
