@@ -69,9 +69,9 @@ let schema = buildSchema(`
       }
   
       type Mutation {
-          addCategory(name: String!, color: String!): Category
+          addCategory(name: String!, color: String!): [Category]
           removeCategory(id: Int!): [Category]
-          addTodo(title: String!, cat_id: Int!, desc: String, checked: Boolean): Todo
+          addTodo(title: String!, cat_id: Int!, desc: String, checked: Boolean): [Todo]
           removeTodo(id: Int!): [Todo]
           checkTodo(id: Int!): Todo
       }
@@ -103,7 +103,7 @@ let root = {
   },
   addCategory: ({ name, color }) => {
     const c = categories.push({ id: categories.length, name, color });
-    return categories[c - 1];
+    return categories;
   },
   removeCategory: ({ id }) => {
     categories = categories.filter((v) => v.id != id);
@@ -119,7 +119,8 @@ let root = {
       desc: newDesc,
       checked: newChecked,
     });
-    return todos[c - 1];
+    const t = todos.filter((val) => val.cat_id == cat_id);
+    return t;
   },
   removeTodo: ({ id }) => {
     todos = todos.filter((t) => t.id != id);
